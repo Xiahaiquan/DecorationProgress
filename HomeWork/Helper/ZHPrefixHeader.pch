@@ -1,0 +1,46 @@
+//
+//  ZHPrefixHeader.pch
+//  HomeWork
+//
+//  Created by 博云智慧 on 16/10/20.
+//  Copyright © 2016年 博云智慧. All rights reserved.
+//
+
+#ifndef ZHPrefixHeader_pch
+#define ZHPrefixHeader_pch
+
+#import <Masonry/Masonry.h>
+
+#import <ReactiveCocoa/ReactiveCocoa.h>
+
+#import "UIImageView+WebCache.h"
+
+#import "ZHConstant.h"
+
+#import "FBRetainCycleDetector.h"
+
+#define ZHSCR_W [UIScreen mainScreen].bounds.size.width
+
+#define ZHSCR_H [UIScreen mainScreen].bounds.size.height
+
+#define ZHScreen CGRectMake(0, 0, ZHSCR_W, ZHSCR_H)
+
+// 弱引用
+#define ZHWeakSelf() __weak typeof(self) weakSelf = self
+// 强引用
+#define ZHStrongSelf() __strong typeof(self) strongSelf = self
+
+#define kUserDefaults [NSUserDefaults standardUserDefaults]
+
+#define postNotification(name,ower,info) [[NSNotificationCenter defaultCenter] postNotificationName:name object:ower userInfo:(info)]
+
+
+#define ZHWeakObject(object) __weak __typeof(object) weakObject = object;
+
+#ifdef DEBUG
+#define ZHLog(...) NSLog(@" %s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+#define ZHLog(...)
+#endif
+
+#endif /* ZHPrefixHeader_pch */
